@@ -1,27 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css"; // Optional Bootstrap styling
+import { Container } from "react-bootstrap";
+import Flower from "./Flower";
+import Rabbit from "./Rabbit";
+import Football from "./Football";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Container, Alert } from "react-bootstrap";
-import { Navbar, Nav } from "react-bootstrap";
-
+function MissGoal(){
+  return <h1>Missed..!</h1>
+}
+function MadeGoal(){
+  return <h1>Goal..!</h1>
+}
+function Choose(props){
+  if(!props.isGoal){
+    return <MissGoal/>
+  }else{
+    return <MadeGoal/>
+  }
+}
 
 function App() {
   return (
-    <Container className="mt-5 text-center">
-      <Alert variant="info">
-        <h4>🚀 React Bootstrap Test</h4>
-        <p>This is a simple test to check if React Bootstrap is working.</p>
-      </Alert>
-      <Button variant="primary" size="lg">
-        Click Me
-      </Button>
-      <Navbar variant='success' className="bg bg-dark text-light p-3 mt-5 rounded rounded-5">hai</Navbar>
+    <Container className="mt-5">
+     
+      <Choose isGoal={false}/>
     </Container>
   );
 }
 
 export default App;
-
